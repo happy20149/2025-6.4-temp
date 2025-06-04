@@ -792,9 +792,7 @@ namespace YamlConvector2 {
         state.push_back(temperature());
         state.push_back(pressure());
         state.insert(state.end(), m_moleFractions.begin(), m_moleFractions.end());
-    }
-
-    void IdealGasPhase::restoreState(const std::vector<double>& state) {
+    }    void IdealGasPhase::restoreState(const std::vector<double>& state) {
         if (state.size() >= 2 + nSpecies()) {
             setTemperature(state[0]);
             setPressure(state[1]);
@@ -803,6 +801,47 @@ namespace YamlConvector2 {
                 X[k] = state[2 + k];
             }
             setMoleFractions(X.data());
+        }
+    }
+
+    // Methods required by ChemEquil
+    double IdealGasPhase::atomicWeight(size_t m) const {
+        // Simple atomic weights for common elements
+        static const std::map<std::string, double> atomicWeights = {
+            {"H", 1.008}, {"C", 12.011}, {"N", 14.007}, {"O", 15.999},
+            {"Ar", 39.948}, {"He", 4.003}, {"Ne", 20.180}, {"Kr", 83.798},
+            {"Xe", 131.293}, {"S", 32.06}, {"P", 30.974}, {"Cl", 35.45},
+            {"F", 18.998}, {"Br", 79.904}, {"I", 126.904}
+        };
+        
+        if (m < m_elementNames.size()) {
+            auto it = atomicWeights.find(m_elementNames[m]);
+            if (it != atomicWeights.end()) {
+                return it->second;
+            }
+        }
+        return 1.0; // default atomic weight
+    }
+
+    void IdealGasPhase::getActivityCoefficients(double* ac) const {
+        // For ideal gas, all activity coefficients are 1.0
+        for (size_t k = 0; k < nSpecies(); ++k) {
+            ac[k] = 1.0;
+        }
+    }
+
+    void IdealGasPhase::getGibbs_RT(double* grt) const {
+        updateThermo();
+        for (size_t k = 0; k < nSpecies(); ++k) {
+            if (k < m_g0_RT.size()) {
+                // Add pressure and mixing term for ideal gas
+                double pressure_term = std::log(pressure() / m_p0);
+                double mole_frac = moleFraction(k);
+                double mixing_term = (mole_frac > 1e-100) ? std::log(mole_frac) : -100.0;
+                grt[k] = m_g0_RT[k] + pressure_term + mixing_term;
+            } else {
+                grt[k] = 0.0;
+            }
         }
     }
 

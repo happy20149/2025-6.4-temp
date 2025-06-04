@@ -4,7 +4,10 @@
 #include <map>
 #include <vector>
 //#include <any>
+
+#ifdef HAVE_YAML_CPP
 #include <yaml-cpp/yaml.h>
+#endif
 
 // 从YamlParser.h移植的类和函数
 class ChemistryIO {
@@ -15,14 +18,14 @@ public:
         //map:映射表(键值对集合)  sequence:序列(元素集合)
         enum class Type {
             Null, String, Number, Boolean, Map, Sequence
-        };
-
-        // 构造函数
+        };        // 构造函数
         YamlValue() : m_type(Type::Null) {}
         YamlValue(const std::string& value) : m_type(Type::String), m_string(value) {}
         YamlValue(double value) : m_type(Type::Number), m_number(value) {}
         YamlValue(bool value) : m_type(Type::Boolean), m_bool(value) {}
+#ifdef HAVE_YAML_CPP
         YamlValue(const YAML::Node& node);
+#endif
 
         // 类型检查
         bool isNull() const { return m_type == Type::Null; }

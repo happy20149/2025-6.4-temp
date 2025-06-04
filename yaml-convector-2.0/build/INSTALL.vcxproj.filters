@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\build\CMakeFiles\e172b932cb21080705ad7b198a38562f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6FAE5F01-DED4-3915-8F2F-E8019AD24537}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

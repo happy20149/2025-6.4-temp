@@ -8,12 +8,17 @@
 #ifndef CT_CHEM_EQUIL_H
 #define CT_CHEM_EQUIL_H
 
+#include <vector>
+#include <functional>
 #include "include/ct_defs.h"
 #include "include/utils.h"
 #include "IdealGasPhase.h"
 
 namespace YamlConvector2
 {
+
+using std::vector;
+using std::function;
 
 class DenseMatrix;
 class IdealGasPhase;

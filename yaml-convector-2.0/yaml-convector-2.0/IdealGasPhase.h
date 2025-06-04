@@ -146,10 +146,13 @@ namespace YamlConvector2 {    // 常量定义
             }
             return std::string::npos;
         }
-        double nAtoms(size_t k, size_t m) const;
-
-        // Chemical potential calculation
+        double nAtoms(size_t k, size_t m) const;        // Chemical potential calculation
         void getChemPotentials(double* mu) const;
+
+        // Methods required by ChemEquil
+        double atomicWeight(size_t m) const;
+        void getActivityCoefficients(double* ac) const;
+        void getGibbs_RT(double* grt) const;
 
         // Chemical equilibrium support
         void setToEquilState(const double* mu_RT);

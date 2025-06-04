@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\build\CMakeFiles\7ff11fd2f4e7b497fbdf8e8f7dc78d5d\run.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\build\yaml-convector-2.0\CMakeFiles\run" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6FAE5F01-DED4-3915-8F2F-E8019AD24537}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

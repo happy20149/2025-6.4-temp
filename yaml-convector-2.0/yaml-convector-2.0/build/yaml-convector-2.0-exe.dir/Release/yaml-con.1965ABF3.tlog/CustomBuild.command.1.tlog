@@ -1,0 +1,10 @@
+^D:\CANTERA-RCONSTRUCT\CANTERA-CONSTRUCT-6.4\YAML-CONVECTOR-2.0\YAML-CONVECTOR-2.0\CMAKELISTS.TXT
+setlocal
+D:\cmake\bin\cmake.exe -SD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0 -BD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build --check-stamp-file D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

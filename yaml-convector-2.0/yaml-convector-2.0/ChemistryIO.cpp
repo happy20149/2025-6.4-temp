@@ -4,22 +4,18 @@
 #include <fstream>
 #include <stdexcept>
 
-// 从YamlValue.cpp移植的代码
-
-// 将YAML::Node转换为YamlValue
+#ifdef HAVE_YAML_CPP
+// YAML::Node to YamlValue conversion
 ChemistryIO::YamlValue::YamlValue(const YAML::Node& node) {
     if (node.IsNull()) {
         m_type = Type::Null;
     }
     else if (node.IsScalar()) {
-        // 尝试转换为不同的标量类型
         try {
-            // 尝试转换为布尔值
             if (node.as<std::string>() == "true" || node.as<std::string>() == "false") {
                 m_type = Type::Boolean;
                 m_bool = node.as<bool>();
             }
-            // 尝试转换为数字
             else {
                 try {
                     double number = node.as<double>();
@@ -27,14 +23,12 @@ ChemistryIO::YamlValue::YamlValue(const YAML::Node& node) {
                     m_number = number;
                 }
                 catch (...) {
-                    // 如果转换失败，默认为字符串
                     m_type = Type::String;
                     m_string = node.as<std::string>();
                 }
             }
         }
         catch (...) {
-            // 如果转换失败，默认为字符串
             m_type = Type::String;
             m_string = node.as<std::string>();
         }
@@ -52,38 +46,39 @@ ChemistryIO::YamlValue::YamlValue(const YAML::Node& node) {
         }
     }
 }
+#endif
 
 std::string ChemistryIO::YamlValue::asString() const {
     if (m_type != Type::String) {
-        throw std::runtime_error("尝试将非字符串类型作为字符串访问");
+        throw std::runtime_error("Value is not a string");
     }
     return m_string;
 }
 
 double ChemistryIO::YamlValue::asNumber() const {
     if (m_type != Type::Number) {
-        throw std::runtime_error("尝试将非数字类型作为数字访问");
+        throw std::runtime_error("Value is not a number");
     }
     return m_number;
 }
 
 bool ChemistryIO::YamlValue::asBoolean() const {
     if (m_type != Type::Boolean) {
-        throw std::runtime_error("尝试将非布尔类型作为布尔值访问");
+        throw std::runtime_error("Value is not a boolean");
     }
     return m_bool;
 }
 
 const std::map<std::string, ChemistryIO::YamlValue>& ChemistryIO::YamlValue::asMap() const {
     if (m_type != Type::Map) {
-        throw std::runtime_error("尝试将非映射表类型作为映射表访问");
+        throw std::runtime_error("Value is not a map");
     }
     return m_map;
 }
 
 const std::vector<ChemistryIO::YamlValue>& ChemistryIO::YamlValue::asSequence() const {
     if (m_type != Type::Sequence) {
-        throw std::runtime_error("尝试将非序列类型作为序列访问");
+        throw std::runtime_error("Value is not a sequence");
     }
     return m_sequence;
 }
@@ -106,7 +101,6 @@ void ChemistryIO::YamlValue::print(int indent) const {
         break;
     case Type::Map:
         std::cout << indentStr << "{" << std::endl;
-        //for (const auto& [key, value] : m_map) {
         for (const auto& pair : m_map) {
             const auto& key = pair.first;
             const auto& value = pair.second;
@@ -126,26 +120,35 @@ void ChemistryIO::YamlValue::print(int indent) const {
     }
 }
 
-// 从YamlParser.cpp移植的文件加载功能
+// File loading functions
 ChemistryIO::YamlValue ChemistryIO::loadFile(const std::string& filename) {
+#ifdef HAVE_YAML_CPP
     try {
         YAML::Node node = YAML::LoadFile(filename);
         return YamlValue(node);
     }
     catch (const std::exception& e) {
-        std::cerr << "加载YAML文件失败: " << e.what() << std::endl;
+        std::cerr << "Failed to load YAML file: " << e.what() << std::endl;
         throw;
     }
+#else
+    std::cerr << "YAML-cpp support not available. Cannot load file: " << filename << std::endl;
+    return YamlValue(); // Return null value
+#endif
 }
 
 ChemistryIO::YamlValue ChemistryIO::loadString(const std::string& yaml) {
+#ifdef HAVE_YAML_CPP
     try {
         YAML::Node node = YAML::Load(yaml);
         return YamlValue(node);
     }
     catch (const std::exception& e) {
-        std::cerr << "解析YAML字符串失败: " << e.what() << std::endl;
+        std::cerr << "Failed to parse YAML string: " << e.what() << std::endl;
         throw;
     }
+#else
+    std::cerr << "YAML-cpp support not available. Cannot parse YAML string." << std::endl;
+    return YamlValue(); // Return null value
+#endif
 }
-

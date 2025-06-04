@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1965ABF3-2BB6-303A-838C-97FCD91A4219}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>yaml-convector-2.0-exe</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">yaml-convector-2.0-exe.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">yaml-convector-2.0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yaml-convector-2.0-exe.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yaml-convector-2.0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">yaml-convector-2.0-exe.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">yaml-convector-2.0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">yaml-convector-2.0-exe.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">yaml-convector-2.0</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Administrator/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;NDEBUG;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;NDEBUG;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Administrator/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Debug/yaml-convector-2.0.exe -installedDir C:/Users/Administrator/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\Administrator\vcpkg\installed\x64-windows\debug\lib\yaml-cppd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Debug/yaml-convector-2.0.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Debug/yaml-convector-2.0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Administrator/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Administrator/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Release/yaml-convector-2.0.exe -installedDir C:/Users/Administrator/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\Administrator\vcpkg\installed\x64-windows\lib\yaml-cpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Release/yaml-convector-2.0.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/Release/yaml-convector-2.0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Administrator/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Administrator/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/MinSizeRel/yaml-convector-2.0.exe -installedDir C:/Users/Administrator/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\Administrator\vcpkg\installed\x64-windows\lib\yaml-cpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/MinSizeRel/yaml-convector-2.0.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/MinSizeRel/yaml-convector-2.0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/Administrator/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;HAVE_YAML_CPP;YAML_CPP_DLL;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\include;C:\Users\Administrator\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/Administrator/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/RelWithDebInfo/yaml-convector-2.0.exe -installedDir C:/Users/Administrator/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Users\Administrator\vcpkg\installed\x64-windows\lib\yaml-cpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/RelWithDebInfo/yaml-convector-2.0.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/RelWithDebInfo/yaml-convector-2.0.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\cmake\bin\cmake.exe -SD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0 -BD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build --check-stamp-file D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config-version.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-debug.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-release.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets.cmake;C:\Users\Administrator\vcpkg\scripts\buildsystems\vcpkg.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeCXXCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeRCCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\cmake\bin\cmake.exe -SD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0 -BD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build --check-stamp-file D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config-version.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-debug.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-release.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets.cmake;C:\Users\Administrator\vcpkg\scripts\buildsystems\vcpkg.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeCXXCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeRCCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\cmake\bin\cmake.exe -SD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0 -BD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build --check-stamp-file D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config-version.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-debug.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-release.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets.cmake;C:\Users\Administrator\vcpkg\scripts\buildsystems\vcpkg.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeCXXCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeRCCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\cmake\bin\cmake.exe -SD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0 -BD:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build --check-stamp-file D:/CANTERA-Rconstruct/cantera-construct-6.4/yaml-convector-2.0/yaml-convector-2.0/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config-version.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-config.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-debug.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets-release.cmake;C:\Users\Administrator\vcpkg\installed\x64-windows\share\yaml-cpp\yaml-cpp-targets.cmake;C:\Users\Administrator\vcpkg\scripts\buildsystems\vcpkg.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeCXXCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeRCCompiler.cmake;D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\3.31.4\CMakeSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;D:\cmake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\Windows.cmake;D:\cmake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemEquil.cpp" />
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemistryIO.cpp" />
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemistryVars.cpp" />
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\IdealGasPhase.cpp" />
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\MechanismTest.cpp" />
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\yaml-convector-2.0.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\build\ZERO_CHECK.vcxproj">
+      <Project>{C2439EB9-43C4-3268-9121-FE96F938B0FC}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

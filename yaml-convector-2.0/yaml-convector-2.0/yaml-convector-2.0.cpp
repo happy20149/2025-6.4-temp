@@ -6,11 +6,10 @@
 #include "MechanismTest.h"
 #include "IdealGasPhase.h"
 
-void testChemicalEquilibrium() {
-    std::cout << "=== Testing Chemical Equilibrium ===" << std::endl;
+void testChemicalEquilibrium() {    std::cout << "=== Testing Chemical Equilibrium ===" << std::endl;
       try {
         YamlConvector2::IdealGasPhase gas;
-        gas.initFromYaml("D:\\cantera\\data\\h2o2.yaml", "ohmech");
+        gas.initFromYaml("..\\..\\..\\..\\h2o2.yaml", "ohmech");
         
         // Debug: Show how many species were loaded
         std::cout << "Loaded " << gas.nSpecies() << " species from h2o2.yaml:" << std::endl;

@@ -115,4 +115,57 @@ inline void scale(InIt first, InIt last, OutIt result, double a) {
     }
 }
 
+// Additional utility functions needed by ChemEquil
+template<typename T>
+inline T clip(const T& value, const T& min_val, const T& max_val) {
+    return (value < min_val) ? min_val : (value > max_val) ? max_val : value;
+}
+
+// Dummy class definitions for compatibility
+class MultiPhase {
+public:
+    MultiPhase() = default;
+    void addPhase(void* phase, double moles) {}
+    void init() {} // Add missing init method
+};
+
+class MultiPhaseEquil {
+public:
+    MultiPhaseEquil(MultiPhase* mp, bool vcs, int loglevel) {} // Fix constructor signature
+    int equilibrate(const std::string& XY, int loglevel = 0) { return 0; }
+    void setInitialMixMoles(int loglevel) {} // Add missing method
+    size_t componentIndex(size_t m) { return m; } // Add missing method
+};
+
+// Fix writelog to accept format string + value (handle both printf and format styles)
+template<typename T>
+inline void writelog(const std::string& format, T value) {
+    // Convert C++20 format syntax to printf syntax
+    std::string printf_format = format;
+    
+    // Replace {:10.5g} with %10.5g
+    size_t pos = printf_format.find("{:");
+    if (pos != std::string::npos) {
+        size_t end_pos = printf_format.find("}", pos);
+        if (end_pos != std::string::npos) {
+            std::string format_spec = printf_format.substr(pos + 2, end_pos - pos - 2);
+            printf_format.replace(pos, end_pos - pos + 1, "%" + format_spec);
+        }
+    }
+    
+    printf(printf_format.c_str(), value);
+}
+
+// Dummy functions for compatibility  
+inline size_t BasisOptimize(int* usedZeroedSpecies, bool doFormRxn, MultiPhase* mphase,
+                           std::vector<size_t>& orderVectorElements,
+                           std::vector<size_t>& orderVectorSpecies,
+                           std::vector<double>& formRxnMatrix) {
+    return 0; // Return a size_t value
+}
+
+inline void ElemRearrange(size_t nComponents, const std::vector<double>& elementAbundances,
+                         MultiPhase* mphase, std::vector<size_t>& orderVectorElements,
+                         std::vector<size_t>& orderVectorSpecies) {}
+
 } // namespace YamlConvector2

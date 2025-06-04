@@ -9,9 +9,13 @@
 
 #include "ChemEquil.h"
 #include "include/utils.h"
+#include <string>
+#include <algorithm>
 
 namespace YamlConvector2
 {
+
+using std::string;
 
 int _equilflag(const char* xy)
 {
@@ -584,11 +588,11 @@ int ChemEquil::equilibrate(ThermoPhase& s, const char* XYstr,
             for (size_t m = 0; m <= m_mm; m++) {
                 writelog("      [ ");
                 for (size_t n = 0; n <= m_mm; n++) {
-                    writelog("{:10.5g} ", jac(m,n));
+                    writelogf("%10.5g ", jac(m,n));
                 }
                 writelog(" ]");
                 if (m < m_mm) {
-                    writelog("x_{:10s}", s.elementName(m));
+                    writelogf("x_%s", s.elementName(m).c_str());
                 } else if (m_eloc == m) {
                     writelog("x_ELOC");
                 } else if (m == m_skip) {

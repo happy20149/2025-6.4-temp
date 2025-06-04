@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemEquil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemistryIO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\ChemistryVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\IdealGasPhase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\MechanismTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\yaml-convector-2.0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\CANTERA-Rconstruct\cantera-construct-6.4\yaml-convector-2.0\yaml-convector-2.0\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ACE32241-C710-3CC5-B8E0-31797412D708}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
