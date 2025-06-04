@@ -9,7 +9,7 @@
 void testChemicalEquilibrium() {    std::cout << "=== Testing Chemical Equilibrium ===" << std::endl;
       try {
         YamlConvector2::IdealGasPhase gas;
-        gas.initFromYaml("..\\..\\..\\..\\h2o2.yaml", "ohmech");
+        gas.initFromYaml("../h2o2.yaml", "ohmech");
         
         // Debug: Show how many species were loaded
         std::cout << "Loaded " << gas.nSpecies() << " species from h2o2.yaml:" << std::endl;
@@ -27,12 +27,15 @@ void testChemicalEquilibrium() {    std::cout << "=== Testing Chemical Equilibri
         // Perform equilibrium calculation
         std::cout << "\n=== Performing TP Equilibrium ===" << std::endl;
         int result = gas.equilibrate("TP");
-        
+
         if (result == 0) {
-            std::cout << "\n=== Equilibrium State ===" << std::endl;
+            std::cout << "\n=== Equilibrium State (Internal Solver) ===" << std::endl;
             std::cout << gas.report() << std::endl;
         } else {
-            std::cout << "Equilibrium calculation failed with code: " << result << std::endl;
+            std::cout << "Internal solver failed with code: " << result << std::endl;
+            std::cout << "\n=== Equilibrium State (Cantera) ===" << std::endl;
+            std::string cmd = std::string("python3 run_cantera_equilibrium.py ../h2o2.yaml ohmech \"O2:1.0, H2:3.0, AR:1.0\" 1500 ") + std::to_string(2.0 * YamlConvector2::OneAtm);
+            std::system(cmd.c_str());
         }
         
     } catch (const std::exception& e) {
