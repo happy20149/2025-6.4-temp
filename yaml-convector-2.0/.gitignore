@@ -1,0 +1,10 @@
+# 忽略 Visual Studio 临时文件和输出目录
+.vs/
+**/out/
+**/x64/Debug/
+**/x64/Release/
+
+# 忽略编译产物
+*.exe
+*.dll
+*.pdb

@@ -1,0 +1,171 @@
+#include <iostream>
+#include <vector>
+#include <memory>
+#include <algorithm>
+
+// 定义三维点
+struct Point3D {
+    double x, y, z;
+};
+
+// 定义AABB类
+class AABB {
+public:
+    Point3D minCoords; // 最小坐标
+    Point3D maxCoords; // 最大坐标
+
+    // 构造函数
+    AABB(const Point3D& minCoords, const Point3D& maxCoords)
+        : minCoords(minCoords), maxCoords(maxCoords) {}
+
+    // 检测两个AABB是否相交
+    bool intersects(const AABB& other) const {
+        return (minCoords.x <= other.maxCoords.x && maxCoords.x >= other.minCoords.x &&
+                minCoords.y <= other.maxCoords.y && maxCoords.y >= other.minCoords.y &&
+                minCoords.z <= other.maxCoords.z && maxCoords.z >= other.minCoords.z);
+    }
+
+    // 检测AABB是否包含点
+    bool contains(const Point3D& point) const {
+        return (point.x >= minCoords.x && point.x <= maxCoords.x &&
+                point.y >= minCoords.y && point.y <= maxCoords.y &&
+                point.z >= minCoords.z && point.z <= maxCoords.z);
+    }
+};
+
+// 定义面结构
+struct Face {
+    int id;          // 面的唯一标识符
+    AABB boundingBox; // 面的包围盒
+};
+
+// 八叉树节点
+class OctreeNode {
+public:
+    AABB region;                          // 当前节点代表的空间区域
+    std::vector<Face> faces;              // 节点中的面
+    std::vector<std::unique_ptr<OctreeNode>> children; // 子节点
+
+    // 构造函数
+    OctreeNode(const AABB& region) : region(region) {}
+
+    // 检查是否是叶子节点
+    bool isLeaf() const {
+        return children.empty();
+    }
+
+    // 分裂节点为八个子节点
+    void subdivide() {
+        Point3D mid = {(region.minCoords.x + region.maxCoords.x) / 2.0,
+                       (region.minCoords.y + region.maxCoords.y) / 2.0,
+                       (region.minCoords.z + region.maxCoords.z) / 2.0};
+
+        children.reserve(8);
+        children.emplace_back(std::make_unique<OctreeNode>(AABB(region.minCoords, mid)));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({mid.x, region.minCoords.y, region.minCoords.z}, {region.maxCoords.x, mid.y, mid.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({region.minCoords.x, mid.y, region.minCoords.z}, {mid.x, region.maxCoords.y, mid.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({mid.x, mid.y, region.minCoords.z}, {region.maxCoords.x, region.maxCoords.y, mid.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({region.minCoords.x, region.minCoords.y, mid.z}, {mid.x, mid.y, region.maxCoords.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({mid.x, region.minCoords.y, mid.z}, {region.maxCoords.x, mid.y, region.maxCoords.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB({region.minCoords.x, mid.y, mid.z}, {mid.x, region.maxCoords.y, region.maxCoords.z})));
+        children.emplace_back(std::make_unique<OctreeNode>(AABB(mid, region.maxCoords)));
+    }
+
+    // 插入面到八叉树节点
+    void insert(const Face& face, int maxFacesPerNode) {
+        // 如果当前节点是叶子节点且容量未满，直接插入
+        if (isLeaf() && faces.size() < maxFacesPerNode) {
+            faces.push_back(face);
+            return;
+        }
+
+        // 如果是叶子节点但容量已满，分裂节点
+        if (isLeaf()) {
+            subdivide();
+            // 将当前节点的面重新分配到子节点
+            for (const auto& f : faces) {
+                for (auto& child : children) {
+                    if (child->region.intersects(f.boundingBox)) {
+                        child->insert(f, maxFacesPerNode);
+                    }
+                }
+            }
+            faces.clear(); // 清空当前节点的面
+        }
+
+        // 将新面插入到对应的子节点
+        for (auto& child : children) {
+            if (child->region.intersects(face.boundingBox)) {
+                child->insert(face, maxFacesPerNode);
+            }
+        }
+    }
+
+    // 查询与给定AABB相交的面
+    void query(const AABB& queryRegion, std::vector<Face>& result) const {
+        // 如果查询区域与当前节点不相交，直接返回
+        if (!region.intersects(queryRegion)) {
+            return;
+        }
+
+        // 查找当前节点中的相交面
+        for (const auto& face : faces) {
+            if (queryRegion.intersects(face.boundingBox)) {
+                result.push_back(face);
+            }
+        }
+
+        // 递归查询子节点
+        if (!isLeaf()) {
+            for (const auto& child : children) {
+                child->query(queryRegion, result);
+            }
+        }
+    }
+};
+
+// 八叉树
+class Octree {
+private:
+    std::unique_ptr<OctreeNode> root; // 根节点
+    int maxFacesPerNode;             // 每个节点的最大面数
+
+public:
+    Octree(const AABB& region, int maxFacesPerNode)
+        : root(std::make_unique<OctreeNode>(region)), maxFacesPerNode(maxFacesPerNode) {}
+
+    // 插入面到八叉树
+    void insert(const Face& face) {
+        root->insert(face, maxFacesPerNode);
+    }
+
+    // 查询与给定AABB相交的面
+    std::vector<Face> query(const AABB& queryRegion) const {
+        std::vector<Face> result;
+        root->query(queryRegion, result);
+        return result;
+    }
+};
+
+int main() {
+    // 定义八叉树的空间范围
+    AABB globalRegion({0, 0, 0}, {10, 10, 10});
+    Octree octree(globalRegion, 2); // 每个节点最多容纳2个面
+
+    // 插入面
+    octree.insert({1, AABB({1, 1, 1}, {3, 3, 3})});
+    octree.insert({2, AABB({4, 4, 4}, {6, 6, 6})});
+    octree.insert({3, AABB({2, 2, 2}, {5, 5, 5})});
+
+    // 查询相交面
+    AABB queryRegion({2, 2, 2}, {4, 4, 4});
+    auto intersectedFaces = octree.query(queryRegion);
+
+    // 输出查询结果
+    std::cout << "与查询区域相交的面:" << std::endl;
+    for (const auto& face : intersectedFaces) {
+        std::cout << "Face ID: " << face.id << std::endl;
+    }
+
+    return 0;
+}
