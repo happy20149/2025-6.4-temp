@@ -154,6 +154,14 @@ namespace YamlConvector2 {    // 常量定义
         // Chemical equilibrium support
         void setToEquilState(const double* mu_RT);
 
+        // State save/restore used by ChemEquil
+        void saveState(std::vector<double>& state) const;
+        void restoreState(const std::vector<double>& state);
+
+        // Temperature limits
+        double maxTemp() const { return m_maxTemp; }
+        double minTemp() const { return m_minTemp; }
+
         // 获取参考状态压力
         double refPressure() const { return m_p0; }
 
@@ -246,6 +254,9 @@ namespace YamlConvector2 {    // 常量定义
         mutable std::vector<double> m_cp0_R;        // 无量纲参考热容
         mutable std::vector<double> m_g0_RT;        // 无量纲参考吉布斯能
         mutable double m_tlast;                     // 上次计算的温度
+
+        double m_maxTemp;                           // Maximum valid temperature
+        double m_minTemp;                           // Minimum valid temperature
 
         // 内部辅助函数
         void parseComposition(const std::string& comp, std::vector<double>& fractions, bool isMass = false);

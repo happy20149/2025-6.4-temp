@@ -8,13 +8,16 @@
 #ifndef CT_CHEM_EQUIL_H
 #define CT_CHEM_EQUIL_H
 
-#include "cantera/base/ct_defs.h"
+#include "include/ct_defs.h"
+#include "include/utils.h"
+#include "IdealGasPhase.h"
 
-namespace Cantera
+namespace YamlConvector2
 {
 
 class DenseMatrix;
-class ThermoPhase;
+class IdealGasPhase;
+using ThermoPhase = IdealGasPhase;
 //! map property strings to integers
 int _equilflag(const char* xy);
 
