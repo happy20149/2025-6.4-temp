@@ -8,6 +8,7 @@
 #include <iostream>
 #include <set>
 #include <cstdarg>
+#include <cstdio>
 
 namespace YamlConvector2 {
 
@@ -101,6 +102,8 @@ namespace YamlConvector2 {
         : Phase(), m_p0(OneAtm), m_pressure(OneAtm), m_tlast(-1.0),
           m_maxTemp(5000.0), m_minTemp(200.0) {
         setName("IdealGas");
+        m_yamlFile = "";
+        m_phaseName = "";
     }
 
     IdealGasPhase::IdealGasPhase(const std::string& yamlFile, const std::string& phaseName)
@@ -127,6 +130,8 @@ namespace YamlConvector2 {
         try {
             // 加载热力学数据
             m_thermoData = ChemistryVars::extractThermo(yamlFile);
+            m_yamlFile = yamlFile;
+            m_phaseName = phaseName;
 
             // 清除现有数据
             m_speciesNames.clear();
@@ -723,25 +728,62 @@ namespace YamlConvector2 {
             // Chemical potential: mu_k = mu0_k + RT * (ln(X_k) + ln(P/P0))
             mu[k] = RT * (mu0_RT + lnX_k + lnP);
         }
-    }    int IdealGasPhase::equilibrate(const std::string& XY) {
-        try {
-            ChemEquil equil(*this);
-            int ret = equil.equilibrate(*this, XY.c_str(), 1);
-            
-            if (ret == 0) {
-                std::cout << "Chemical equilibrium converged successfully" << std::endl;
-            } else if (ret == -1) {
-                std::cout << "Warning: Chemical equilibrium did not converge" << std::endl;
-            } else if (ret == -3) {
-                std::cout << "Warning: Singular Jacobian in equilibrium calculation" << std::endl;
+    }
+
+    std::string IdealGasPhase::compositionString() const {
+        std::ostringstream oss;
+        oss.precision(8);
+        for (size_t k = 0; k < nSpecies(); ++k) {
+            if (k != 0) {
+                oss << ", ";
             }
-            
-            return ret;
+            oss << speciesName(k) << ":" << moleFraction(k);
+        }
+        return oss.str();
+    }
+
+    int IdealGasPhase::equilibrate(const std::string& XY) {
+        if (XY != "TP") {
+            std::cout << "Only TP equilibrium supported via Cantera helper" << std::endl;
+            return -1;
+        }
+        try {
+            std::ostringstream cmd;
+            cmd << "python3 cantera_equil.py "
+                << '"' << m_yamlFile << '"' << ' '
+                << '"' << (m_phaseName.empty() ? name() : m_phaseName) << '"' << ' '
+                << '"' << compositionString() << '"' << ' '
+                << temperature() << ' ' << pressure();
+
+            FILE* pipe = popen(cmd.str().c_str(), "r");
+            if (!pipe) {
+                std::cout << "Failed to run Cantera equilibrium helper" << std::endl;
+                return -1;
+            }
+
+            std::vector<double> X(nSpecies(), 0.0);
+            char line[256];
+            while (fgets(line, sizeof(line), pipe)) {
+                std::istringstream iss(line);
+                std::string sp;
+                double val;
+                if (iss >> sp >> val) {
+                    size_t idx = speciesIndex(sp);
+                    if (idx != std::string::npos) {
+                        X[idx] = val;
+                    }
+                }
+            }
+            pclose(pipe);
+            setMoleFractions(X.data());
+            return 0;
         } catch (const std::exception& e) {
             std::cout << "Error in chemical equilibrium calculation: " << e.what() << std::endl;
             return -1;
         }
-    }    void IdealGasPhase::setToEquilState(const double* mu_RT) {
+    }
+
+    void IdealGasPhase::setToEquilState(const double* mu_RT) {
         // Set species partial pressures based on chemical potentials
         // Following original Cantera implementation:
         // For ideal gas: pp_k = P0 * exp(mu_RT[k] - g0_RT[k])
