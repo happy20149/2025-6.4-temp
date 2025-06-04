@@ -7,14 +7,10 @@
 // This file is part of Cantera. See License.txt in the top-level directory or
 // at https://cantera.org/license.txt for license and copyright information.
 
-#include "cantera/equil/ChemEquil.h"
-#include "cantera/base/stringUtils.h"
-#include "cantera/equil/MultiPhaseEquil.h"
-#include "cantera/thermo/ThermoPhase.h"
-#include "cantera/base/utilities.h"
-#include "cantera/base/global.h"
+#include "ChemEquil.h"
+#include "include/utils.h"
 
-namespace Cantera
+namespace YamlConvector2
 {
 
 int _equilflag(const char* xy)
@@ -96,9 +92,8 @@ void ChemEquil::initialize(ThermoPhase& s)
                 // print a warning.
                 if (s.atomicWeight(m) > 1.0e-3) {
                     warn_user("ChemEquil::initialize",
-                        "species {} has {} atoms of element {}, "
-                        "but this element is not an electron.",
-                        s.speciesName(k), s.nAtoms(k,m), s.elementName(m));
+                        formatString("species {} has {} atoms of element {}, but this element is not an electron.",
+                                    s.speciesName(k), s.nAtoms(k,m), s.elementName(m)));
                 }
             }
         }
@@ -149,8 +144,8 @@ void ChemEquil::update(const ThermoPhase& s)
             m_elementmolefracs[m] += nAtoms(k,m) * m_molefractions[k];
             if (m_molefractions[k] < 0.0) {
                 throw CanteraError("ChemEquil::update",
-                                   "negative mole fraction for {}: {}",
-                                   s.speciesName(k), m_molefractions[k]);
+                                   formatString("negative mole fraction for {}: {}",
+                                                s.speciesName(k), m_molefractions[k]));
             }
         }
         sum += m_elementmolefracs[m];
@@ -353,16 +348,16 @@ int ChemEquil::equilibrate(ThermoPhase& s, const char* XYstr,
         break;
     default:
         throw CanteraError("ChemEquil::equilibrate",
-                           "illegal property pair '{}'", XYstr);
+                           formatString("illegal property pair '{}'", XYstr));
     }
     // If the temperature is one of the specified variables, and
     // it is outside the valid range, throw an exception.
     if (tempFixed) {
         double tfixed = s.temperature();
         if (tfixed > s.maxTemp() + 1.0 || tfixed < s.minTemp() - 1.0) {
-            throw CanteraError("ChemEquil::equilibrate", "Specified temperature"
-                               " ({} K) outside valid range of {} K to {} K\n",
-                               s.temperature(), s.minTemp(), s.maxTemp());
+            throw CanteraError("ChemEquil::equilibrate",
+                formatString("Specified temperature ({} K) outside valid range of {} K to {} K",
+                             s.temperature(), s.minTemp(), s.maxTemp()));
         }
     }
 
@@ -571,8 +566,8 @@ int ChemEquil::equilibrate(ThermoPhase& s, const char* XYstr,
             if (s.temperature() > s.maxTemp() + 1.0 ||
                     s.temperature() < s.minTemp() - 1.0) {
                 warn_user("ChemEquil::equilibrate",
-                    "Temperature ({} K) outside valid range of {} K "
-                    "to {} K", s.temperature(), s.minTemp(), s.maxTemp());
+                    formatString("Temperature ({} K) outside valid range of {} K to {} K",
+                                 s.temperature(), s.minTemp(), s.maxTemp()));
             }
             return 0;
         }
@@ -667,7 +662,7 @@ int ChemEquil::equilibrate(ThermoPhase& s, const char* XYstr,
     // no convergence
     s.restoreState(state);
     throw CanteraError("ChemEquil::equilibrate",
-                       "no convergence in {} iterations.", options.maxIterations);
+                       formatString("no convergence in {} iterations.", options.maxIterations));
 }
 
 
@@ -1365,4 +1360,4 @@ void ChemEquil::adjustEloc(ThermoPhase& s, vector<double>& elMolesGoal)
     s.getMoleFractions(m_molefractions.data());
 }
 
-} // namespace
+} // namespace YamlConvector2
