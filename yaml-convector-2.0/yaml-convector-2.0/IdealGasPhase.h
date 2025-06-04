@@ -6,6 +6,7 @@
 #include <map>
 #include <memory>
 #include <stdexcept>
+#include <algorithm>
 
 namespace YamlConvector2 {    // 常量定义
     constexpr double GasConstant = 8314.462618;  // J/(kmol·K) - 通用气体常数 (标准值)
