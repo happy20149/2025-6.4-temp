@@ -222,6 +222,9 @@ namespace YamlConvector2 {    // 常量定义
             }
         }
 
+        // Return composition string in Cantera format
+        std::string compositionString() const;
+
     protected:
         // 更新热力学数据
         virtual void updateThermo() const;
@@ -261,6 +264,10 @@ namespace YamlConvector2 {    // 常量定义
 
         double m_maxTemp;                           // Maximum valid temperature
         double m_minTemp;                           // Minimum valid temperature
+
+        // Source YAML location and phase name (for Cantera equilibrium helper)
+        std::string m_yamlFile;
+        std::string m_phaseName;
 
         // 内部辅助函数
         void parseComposition(const std::string& comp, std::vector<double>& fractions, bool isMass = false);
