@@ -98,7 +98,8 @@ namespace YamlConvector2 {
     // IdealGasPhase 实现
 
     IdealGasPhase::IdealGasPhase()
-        : Phase(), m_p0(OneAtm), m_pressure(OneAtm), m_tlast(-1.0) {
+        : Phase(), m_p0(OneAtm), m_pressure(OneAtm), m_tlast(-1.0),
+          m_maxTemp(5000.0), m_minTemp(200.0) {
         setName("IdealGas");
     }
 
@@ -782,6 +783,25 @@ namespace YamlConvector2 {
             // Fallback to equal mole fractions if total pressure is zero
             double equal_frac = 1.0 / nSpecies();
             std::vector<double> X(nSpecies(), equal_frac);
+            setMoleFractions(X.data());
+        }
+    }
+
+    void IdealGasPhase::saveState(std::vector<double>& state) const {
+        state.clear();
+        state.push_back(temperature());
+        state.push_back(pressure());
+        state.insert(state.end(), m_moleFractions.begin(), m_moleFractions.end());
+    }
+
+    void IdealGasPhase::restoreState(const std::vector<double>& state) {
+        if (state.size() >= 2 + nSpecies()) {
+            setTemperature(state[0]);
+            setPressure(state[1]);
+            std::vector<double> X(nSpecies());
+            for (size_t k = 0; k < nSpecies(); ++k) {
+                X[k] = state[2 + k];
+            }
             setMoleFractions(X.data());
         }
     }
